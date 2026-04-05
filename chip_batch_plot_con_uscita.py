@@ -40,12 +40,12 @@ COLORS = {
 print("="*100)
 print(" "*10 + "CHIP MICROFLUIDICO - DIGITAL TWIN CON USCITA APICALE (CONSOLE MODE)")
 print("="*100)
-print("🚀 Motore: Numba JIT (C-level performance)")
-print("🧠 Logica: State-Machine con calibrazione autonoma e validazione")
-print("📊 Output: Tabella dati terminale + Barre di caricamento + Report finale")
-print("🔬 Validazione: Bilancio di massa integrato")
-print("📈 Visualizzazione: 9 plot professionali")
-print("🩸 Outlet: Canale di uscita apicale collegato al vaso sanguigno")
+print(" Motore: Numba JIT (C-level performance)")
+print(" Logica: State-Machine con calibrazione autonoma e validazione")
+print( "Output: Tabella dati terminale + Barre di caricamento + Report finale")
+print(" Validazione: Bilancio di massa integrato")
+print(" Visualizzazione: 9 plot professionali")
+print(" Outlet: Canale di uscita apicale collegato al vaso sanguigno")
 print("="*100 + "\n")
 
 FASE_RIEMPIMENTO = 1
@@ -208,7 +208,7 @@ class ChipGeometryCompleto:
 
         overlap = np.any(self.aperture_mask & self.cult_mask)
         if overlap:
-            print("⚠️  ATTENZIONE: Sovrapposizione tra aperture e camera di coltura rilevata!")
+            print("  ATTENZIONE: Sovrapposizione tra aperture e camera di coltura rilevata!")
 
         # Verifica che l'uscita sia connessa
         outlet_connected = np.any(self.outlet_mask & self.cult_mask)
@@ -432,7 +432,7 @@ class BatchSolverDialisi:
             tempo_trovato = tempi[-1]
             removal_max = risultati[-1][1]
             if not silent:
-                print(f"   ⚠️  Target {target*100:.0f}% non raggiungibile. Max ottenuto: {removal_max*100:.1f}%")
+                print(f"     Target {target*100:.0f}% non raggiungibile. Max ottenuto: {removal_max*100:.1f}%")
                 print(f"   ✓ Calibrazione adattativa: valvole settate a {tempo_trovato:.1f}s")
         else:
             if not silent:
@@ -756,7 +756,7 @@ def create_dashboard(geom, solver, results, cfg, C_final, C_cult_total, avg_remo
     fig.suptitle(f'ANALISI CHIP MICROFLUIDICO - DIALISI BATCH{outlet_text}', fontsize=16, fontweight='bold')
 
     plt.savefig('chip_analysis_dashboard_outlet.png', dpi=300, bbox_inches='tight', facecolor='white')
-    print("✅ Dashboard salvato: chip_analysis_dashboard_outlet.png")
+    print(" Dashboard salvato: chip_analysis_dashboard_outlet.png")
 
     return fig
 
@@ -858,7 +858,7 @@ for ciclo in range(1, cicli_di_vita + 1):
         'ricalibrato': False
     })
 
-    stato_str = "✅ OK (Stabile)"
+    stato_str = " OK (Stabile)"
     if not ok:
         stato_str = "⚠️ Fouling: Ricalibro Valvole..."
         solver.calibrated = False 
@@ -902,7 +902,7 @@ if len(storico_fouling) > 0:
 
 valori_finali = C_cult_state[geom.cult_mask & (C_cult_state > 0)]
 if len(valori_finali) > 0:
-    print(f"\n🧪 Stato Camera di Coltura:")
+    print(f"\n Stato Camera di Coltura:")
     print(f"   • Concentrazione media:      {np.mean(valori_finali):.2f}")
     print(f"   • Concentrazione max:        {np.max(valori_finali):.2f}")
     print(f"   • Concentrazione min:        {np.min(valori_finali):.2f}")
@@ -922,7 +922,7 @@ dashboard = create_dashboard(geom, solver, results_batch, cfg, C_final_for_plot,
 print("\n" + "="*100)
 print("SIMULAZIONE COMPLETATA CON SUCCESSO.")
 if SIMULA_USCITA:
-    print("✅ Canale di uscita apicale attivo - Collegamento al vaso sanguigno funzionante")
+    print(" Canale di uscita apicale attivo - Collegamento al vaso sanguigno funzionante")
 print("="*100)
 
 plt.show()
