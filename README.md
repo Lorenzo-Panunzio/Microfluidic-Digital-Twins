@@ -22,7 +22,17 @@ This repository contains computational models (Digital Twins) of microfluidic ch
 ## Author Profile & Background
 **Lorenzo Panunzio**
 I combine a strong background in biology (MSc from Sapienza University) with computational data science to build predictive mathematical models for bioengineering applications.
+* ## Simulation Results
+
+## Simulation Results
+
+### Concentration Dynamics Over Time (Sequential Micro-chambers)
+![Batch Plot](chip_batch.png)
+
+### Nanoparticle Capture Probability based on Fluid Velocity
+![Physical Plot](chip_altezze.png)
 
 **Relevant Certifications:**
 * Python for Everybody (Specialization, With Honors)* - University of Michigan
 * Python for Genomic Data Science* - Johns Hopkins University
+
